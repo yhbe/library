@@ -1,9 +1,9 @@
 let myLibrary = [];
 
 function Book(book) {
-  this.author = book.author;
-  this.title = book.title;
-  this.pages = book.pages;
+  this.title = book.title || "Unknown";
+  this.author = book.author || "Unknown";
+  this.pages = book.pages || "Unknown";
 }
 
 function addBookToLibrary() {
@@ -12,8 +12,14 @@ function addBookToLibrary() {
   info.author = document.querySelector("#author").value;
   info.pages = document.querySelector("#pages").value;
   let book = new Book(info);
-  myLibrary.push(book);
-  console.log(book, myLibrary);
+  return myLibrary.push(book), addBookToPage(book);
+}
+
+function addBookToPage(book) {
+  let cardContainerDiv = document.querySelector(".cardContainer");
+  let div = document.createElement("div");
+  div.innerHTML = `<p> Title: ${book.title} </p> <p> Author: ${book.author} </p> <p> Pages: ${book.pages} </p>`;
+  cardContainerDiv.appendChild(div);
 }
 
 const form = document.querySelector("form");
