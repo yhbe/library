@@ -4,8 +4,13 @@ function Book(book) {
   this.title = book.title || "Unknown";
   this.author = book.author || "Unknown";
   this.pages = book.pages || "Unknown";
+  this.read = book.read;
   this.id = Math.random();
 }
+
+Book.prototype.changeStatus = function () {
+  this.read == true ? (this.read = false) : (this.read = true);
+};
 
 function addBookToLibrary() {
   toggleForm();
@@ -13,6 +18,7 @@ function addBookToLibrary() {
   info.title = document.querySelector("#title").value;
   info.author = document.querySelector("#author").value;
   info.pages = document.querySelector("#pages").value;
+  info.read = document.querySelector("#checkbox").checked;
   let book = new Book(info);
   return myLibrary.push(book), addBookToPage(book);
 }
@@ -31,6 +37,19 @@ function addBookToPage(book) {
       myLibrary.splice(myLibrary.indexOf(book), 1);
     });
     div.append(deleteButton);
+
+    let readStatus = document.createElement("span");
+    readStatus.innerHTML = `<label for="accept">Read Status:</label>
+  `;
+    let checkBox = document.createElement("input");
+    checkBox.setAttribute("type", "checkbox");
+    checkBox.setAttribute("id", "bookStatus");
+    checkBox.checked = book.read;
+    checkBox.addEventListener("click", function () {
+      book.changeStatus();
+    });
+    div.append(readStatus);
+    div.append(checkBox);
     cardContainerDiv.appendChild(div);
   });
 }
