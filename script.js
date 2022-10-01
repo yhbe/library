@@ -26,6 +26,9 @@ function addBookToLibrary() {
 function addBookToPage(book) {
   let cardContainerDiv = document.querySelector(".cardContainer");
   let div = document.createElement("div");
+  book.read == true
+    ? (div.style.backgroundColor = "pink")
+    : (div.style.backgroundColor = "red");
   div.setAttribute("class", "card");
   myLibrary.forEach((book) => {
     div.innerHTML = `<p> Title: ${book.title} </p> <p> Author: ${book.author} </p> <p> Pages: ${book.pages} </p>`;
@@ -47,9 +50,12 @@ function addBookToPage(book) {
     checkBox.checked = book.read;
     checkBox.addEventListener("click", function () {
       book.changeStatus();
+      book.read == true
+        ? (div.style.backgroundColor = "pink")
+        : (div.style.backgroundColor = "red");
     });
+    readStatus.append(checkBox);
     div.append(readStatus);
-    div.append(checkBox);
     cardContainerDiv.appendChild(div);
   });
 }

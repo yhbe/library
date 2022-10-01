@@ -38,12 +38,20 @@ ul,li{
 }
 
 .card{
-  text-align: center;
-  padding: 15px;
+  padding: 45px;
   height: max-content;
   width: max-content;
   background-color: red;
   position: relative;
+  font-size: 20px;
+}
+
+.card *{
+  width: auto;
+  text-align: left;
+}
+span{
+  display: flex;
 }
 
 .delete{
