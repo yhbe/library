@@ -21,23 +21,18 @@ function addBookToPage(book) {
   let cardContainerDiv = document.querySelector(".cardContainer");
   let div = document.createElement("div");
   div.setAttribute("class", "card");
-  div.innerHTML = `<p> Title: ${book.title} </p> <p> Author: ${book.author} </p> <p> Pages: ${book.pages} </p> <button class="delete" id="${book.id}">x</butt>`;
-  cardContainerDiv.appendChild(div);
-}
-
-document.body.addEventListener("click", removeBook);
-
-function removeBook(event) {
-  if (event.target.classList[0] == "delete") {
-    let id = Number(event.target.id);
-    console.log(id);
-    const newLibrary = myLibrary.filter((book) => book.id !== id);
-    return (
-      event.target.parentNode.remove(),
-      (myLibrary = newLibrary),
-      console.log(myLibrary)
-    );
-  }
+  myLibrary.forEach((book) => {
+    div.innerHTML = `<p> Title: ${book.title} </p> <p> Author: ${book.author} </p> <p> Pages: ${book.pages} </p>`;
+    let deleteButton = document.createElement("button");
+    deleteButton.setAttribute("class", "delete");
+    deleteButton.innerHTML = "x";
+    deleteButton.addEventListener("click", function (event) {
+      event.target.parentNode.remove();
+      myLibrary.splice(myLibrary.indexOf(book), 1);
+    });
+    div.append(deleteButton);
+    cardContainerDiv.appendChild(div);
+  });
 }
 
 const form = document.querySelector("form");
