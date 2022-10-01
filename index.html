@@ -9,24 +9,37 @@
     <title>Document</title>
   </head>
   <body>
+    <div class="header">
+      <h1>Welcome to the library</h1>
+      <button id="addABookButton">add a book here</button>
+    </div>
     <div class="cardContainer"></div>
     <div class="modal">
       <form action="" onsubmit="return false">
-        <ul>
-          <li>
-            <label for="title">Title:</label>
-            <input type="text" name="title" id="title" />
-          </li>
-          <li>
-            <label for="author">Author</label>
-            <input type="text" name="author" id="author" />
-          </li>
-          <li>
-            <label for="pages">Pages:</label>
-            <input type="number" name="pages" id="pages" />
-          </li>
-          <button type="submit" id="formButton">Submit</button>
-        </ul>
+        <fieldset>
+          <legend style="white-space: nowrap">
+            Add book information below
+          </legend>
+          <ul>
+            <li>
+              <label for="title">Title:</label>
+              <input type="text" name="title" id="title" />
+            </li>
+            <li>
+              <label for="author">Author</label>
+              <input type="text" name="author" id="author" />
+            </li>
+            <li>
+              <label for="pages">Pages:</label>
+              <input type="number" name="pages" id="pages" />
+            </li>
+            <li>
+              <label for="checkbox">Read?</label>
+              <input type="checkbox" name="checkbox" id="checkbox" />
+            </li>
+            <button type="submit" id="formButton">Submit</button>
+          </ul>
+        </fieldset>
       </form>
     </div>
   </body>

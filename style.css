@@ -1,0 +1,54 @@
+.header{
+  text-align: center;
+  margin: 50px 0px;
+}
+
+
+
+.modal{
+  position: absolute;
+  width: 100%;
+  background-color: gray;
+  height: 100vh;
+  top: 0;
+  /* opacity: 50%; */
+  text-align: center;
+}
+
+form{
+  background-color: white;
+  width: min-content;
+  margin: 40vh auto auto auto;
+  padding: 50px;
+  
+}
+
+ul,li{
+  list-style-type: none;
+  padding: 0px;
+}
+
+.cardContainer{
+  margin: auto;
+  width: 65%;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  
+}
+
+.card{
+  text-align: center;
+  padding: 15px;
+  height: max-content;
+  width: max-content;
+  background-color: red;
+  position: relative;
+}
+
+.delete{
+  font-size: 20px;
+  top: -25px;
+  right: 0px;
+  position: absolute;
+}
