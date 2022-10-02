@@ -63,3 +63,8 @@ span{
   right: 0px;
   position: absolute;
 }
+
+#addABookButton{
+  border: none;
+  padding: 10px;
+}
