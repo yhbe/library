@@ -24,6 +24,7 @@ function addBookToLibrary() {
 }
 
 function addBookToPage(book) {
+  form.reset();
   let cardContainerDiv = document.querySelector(".cardContainer");
   let div = document.createElement("div");
   book.read == true
