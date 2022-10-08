@@ -1,16 +1,17 @@
 let myLibrary = [];
 
-function Book(book) {
-  this.title = book.title || "Unknown";
-  this.author = book.author || "Unknown";
-  this.pages = book.pages || "Unknown";
-  this.read = book.read;
-  this.id = Math.random();
+class Book {
+  constructor(book) {
+    this.title = book.title || "Unknown";
+    this.author = book.author || "Unknown";
+    this.pages = book.pages || "Unknown";
+    this.read = book.read;
+    this.id = Math.random();
+  }
+  changeStatus() {
+    this.read == true ? (this.read = false) : (this.read = true);
+  }
 }
-
-Book.prototype.changeStatus = function () {
-  this.read == true ? (this.read = false) : (this.read = true);
-};
 
 function addBookToLibrary() {
   toggleForm();
