@@ -8,8 +8,8 @@ class Book {
     this.read = book.read;
     this.id = Math.random();
   }
-  changeStatus() {
-    this.read == true ? (this.read = false) : (this.read = true);
+  get changeStatus() {
+    return this.read == true ? (this.read = false) : (this.read = true);
   }
 }
 
@@ -51,7 +51,7 @@ function addBookToPage(book) {
     checkBox.setAttribute("id", "bookStatus");
     checkBox.checked = book.read;
     checkBox.addEventListener("click", function () {
-      book.changeStatus();
+      book.changeStatus;
       book.read == true
         ? (div.style.backgroundColor = "pink")
         : (div.style.backgroundColor = "red");
